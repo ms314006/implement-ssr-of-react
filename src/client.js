@@ -7,7 +7,7 @@ import Routes from './Routes';
 import createStore from './store';
 
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={createStore()}>
     <BrowserRouter>
       {renderRoutes(Routes)}
