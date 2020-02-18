@@ -5,10 +5,10 @@ import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import Routes from '../Routes';
 
-export default (req, store, context) => {
+export default (req, store) => {
   const content = renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.path} context={context}>
+      <StaticRouter location={req.path}>
         <div>{renderRoutes(Routes)}</div>
       </StaticRouter>
     </Provider>,
@@ -17,9 +17,6 @@ export default (req, store, context) => {
     <html>
       <body>
         <div id="root">${content}</div>
-        <script>
-          window.__PRELOADED_STATE__= ${JSON.stringify(store.getState())}
-        </script>
         <script src="./bundle.js"></script>
       </body>
     </html>

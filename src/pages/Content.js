@@ -2,10 +2,14 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRequestQuery } from '../actions';
 
+const loadData = dispatch => (
+  fetchRequestQuery(dispatch)
+);
+
 const Content = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchRequestQuery(dispatch);
+    loadData(dispatch);
   }, []);
 
   const { request } = useSelector(state => state);
@@ -14,11 +18,7 @@ const Content = () => {
   );
 };
 
-const serverLoadData = dispatch => (
-  fetchRequestQuery(dispatch)
-);
-
 export default {
   component: Content,
-  serverLoadData,
+  loadData,
 };

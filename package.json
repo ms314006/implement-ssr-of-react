@@ -6,10 +6,8 @@
   "scripts": {
     "build-client": "webpack --config webpack.client.js",
     "build-server": "webpack --config webpack.server.js",
-    "build-all": "npm run build-client && npm run build-server",
-    "dev:build-server": "webpack --config webpack.server.js --watch",
-    "dev:build-client": "webpack --config webpack.client.js --watch",
-    "dev:server": "node build/bundle.js"
+    "build": "npm run build-client && npm run build-server",
+    "server": "node build/bundle.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",

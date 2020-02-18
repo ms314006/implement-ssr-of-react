@@ -15,15 +15,10 @@ app.get('*', (req, res) => {
   const { dispatch } = store;
   const routes = matchRoutes(Routes, req.path);
   const promises = routes.map(
-    ({ route }) => (route.serverLoadData ? route.serverLoadData(dispatch) : null),
+    ({ route }) => (route.loadData ? route.loadData(dispatch) : null),
   );
   Promise.all(promises).then(() => {
-    const context = {};
-    const content = renderer(req, store, context);
-
-    if (context.notFound) {
-      res.status(404);
-    }
+    const content = renderer(req, store);
 
     res.send(content);
   });
