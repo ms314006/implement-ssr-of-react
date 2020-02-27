@@ -4,6 +4,4 @@ const NotFount = () => (
   <span>無此頁面</span>
 );
 
-export default {
-  component: NotFount,
-};
+export default NotFount;

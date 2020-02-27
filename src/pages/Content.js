@@ -1,24 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchRequestQuery } from '../actions';
+import React from 'react';
 
-const loadData = dispatch => (
-  fetchRequestQuery(dispatch)
+const Content = () => (
+  <span>Hello! I'm content of this page!</span>
 );
 
-const Content = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    loadData(dispatch);
-  }, []);
-
-  const { request } = useSelector(state => state);
-  return (
-    <span>{JSON.stringify(request)}</span>
-  );
-};
-
-export default {
-  component: Content,
-  loadData,
-};
+export default Content;
