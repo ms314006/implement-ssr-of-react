@@ -5,9 +5,6 @@ import renderer from './helpers/renderer';
 import createStore from './store';
 
 const app = express();
-
-const port = process.env.PORT || 3001;
-
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
@@ -19,11 +16,11 @@ app.get('*', (req, res) => {
   );
   Promise.all(promises).then(() => {
     const content = renderer(req, store);
-
     res.send(content);
   });
 });
 
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });

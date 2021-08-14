@@ -6,9 +6,11 @@ import { Provider } from 'react-redux';
 import Routes from './Routes';
 import createStore from './store';
 
+const preloadedState = window.__PRELOADED_STATE__;
+delete window.__PRELOADED_STATE__;
 
 ReactDOM.render(
-  <Provider store={createStore()}>
+  <Provider store={createStore(preloadedState)}>
     <BrowserRouter>
       {renderRoutes(Routes)}
     </BrowserRouter>
