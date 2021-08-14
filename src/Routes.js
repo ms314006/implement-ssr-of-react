@@ -6,11 +6,11 @@ export default [{
   ...App,
   routes: [
     {
-      component: Content,
+      ...Content,
       path: '/',
       exact: true,
     }, {
-      component: NotFound,
+      ...NotFound,
     },
   ],
 }];
